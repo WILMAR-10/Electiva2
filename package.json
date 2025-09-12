@@ -1,0 +1,22 @@
+{
+  "name": "electiva2",
+  "version": "1.0.0",
+  "description": "Proyecto de Electiva 2 - Universidad",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node src/index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "electiva2",
+    "universidad",
+    "proyecto"
+  ],
+  "author": "Wilmar Gomez de la Cruz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WILMAR-10/Electiva2.git"
+  }
+}
