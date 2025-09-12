@@ -1,0 +1,81 @@
+name: CI - Alerta DevOps ITLA
+
+# Se ejecuta cuando hay push o pull request a la rama main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-notify:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Paso 1: Descargar el código del repositorio
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    # Paso 2: Configurar Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    # Paso 3: Instalar dependencias (si las hay)
+    - name: Install dependencies
+      run: npm install --if-present
+      
+    # Paso 4: Ejecutar el programa Hola Mundo
+    - name: Run Hello World
+      run: |
+        echo "Ejecutando programa Hola Mundo..."
+        node app.js
+        
+    # Paso 5: Ejecutar tests básicos
+    - name: Run tests
+      run: npm test
+      
+    # Paso 6: Enviar notificación a ntfy.sh/devops-itla
+    - name: Send notification to ntfy.sh
+      if: always()  # Se ejecuta siempre, incluso si fallan los pasos anteriores
+      run: |
+        # Determinar el estado del build
+        if [ "${{ job.status }}" == "success" ]; then
+          STATUS="EXITOSO"
+          PRIORITY="default"
+        else
+          STATUS="FALLIDO"
+          PRIORITY="high"
+        fi
+        
+        # Enviar notificación
+        curl -H "Title: CI/CD - Electiva 2 DevOps" \
+             -H "Priority: $PRIORITY" \
+             -H "Tags: github,ci,devops,itla" \
+             -d "Build $STATUS
+             
+        Estudiante: Wilmar Gómez (20240103)
+        Curso: Electiva 2 - DevOps
+        Profesor: Elvys Cruz
+        
+        Repositorio: ${{ github.repository }}
+        Rama: ${{ github.ref_name }}
+        Commit: ${{ github.sha }}
+        Autor: ${{ github.actor }}
+        Mensaje: ${{ github.event.head_commit.message }}
+        
+        Ver detalles: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+             https://ntfy.sh/devops-itla
+             
+    # Paso 7: Notificación específica de éxito
+    - name: Success notification
+      if: success()
+      run: |
+        curl -H "Title: Build Completado con Éxito" \
+             -H "Priority: low" \
+             -H "Tags: success,green_circle" \
+             -d "El programa Hola Mundo se ejecutó correctamente y todos los tests pasaron. 
+             
+        Integración Continua funcionando perfectamente!" \
+             https://ntfy.sh/devops-itla

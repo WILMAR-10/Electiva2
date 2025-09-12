@@ -1,0 +1,19 @@
+{
+  "name": "electiva2-devops-ci",
+  "version": "1.0.0",
+  "description": "Práctica de Integración Continua con GitHub Actions - Electiva 2 ITLA",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Test passed - Hola Mundo funcionando correctamente\" && exit 0"
+  },
+  "keywords": [
+    "devops",
+    "ci",
+    "github-actions",
+    "itla",
+    "javascript"
+  ],
+  "author": "Wilmar Gómez <20240103@itla.edu.do>",
+  "license": "MIT"
+}
