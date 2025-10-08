@@ -1,0 +1,54 @@
+name: Deploy to Surge.sh
+
+# Se ejecuta en push a main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Paso 1: Descargar código del repositorio
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    # Paso 2: Configurar Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    # Paso 3: Instalar Surge.sh globalmente
+    - name: Install Surge
+      run: npm install -g surge
+      
+    # Paso 4: Desplegar a Surge.sh
+    - name: Deploy to Surge.sh
+      run: |
+        echo "Desplegando sitio web a Surge.sh..."
+        surge . electiva2-wilmar-gomez.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      env:
+        SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+        SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        
+    # Paso 5: Notificar éxito del despliegue
+    - name: Deployment success notification
+      if: success()
+      run: |
+        echo "Despliegue exitoso a https://electiva2-wilmar-gomez.surge.sh"
+        curl -H "Title: Despliegue Exitoso - Surge.sh" \
+             -H "Priority: default" \
+             -H "Tags: surge,deployment,success" \
+             -d "Sitio web desplegado exitosamente
+             
+        Estudiante: Wilmar Gómez (20240103)
+        Sitio: https://electiva2-wilmar-gomez.surge.sh
+        Repositorio: ${{ github.repository }}
+        Commit: ${{ github.sha }}
+        
+        Evaluación 1er Parcial completada con éxito!" \
+             https://ntfy.sh/devops-itla
