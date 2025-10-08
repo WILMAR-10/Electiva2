@@ -30,9 +30,9 @@ jobs:
     - name: Deploy to Surge.sh
       run: |
         echo "Desplegando sitio web a Surge.sh..."
-        surge . WILMAR_10_ELECTIVA_2_2025.surge.sh --token ${{ secrets.WILMAR_10_ELECTIVA_2_2025_SECRET }}
+        surge . WILMAR_10_ELECTIVA_2_2025.surge.sh --token ${{ secrets.WILMAR_10_ELECTIVA_2_2025 }}
       env:
-        SURGE_TOKEN: ${{ secrets.WILMAR_10_ELECTIVA_2_2025_SECRET }}
+        SURGE_TOKEN: ${{ secrets.WILMAR_10_ELECTIVA_2_2025 }}
         
     # Paso 5: Notificar éxito del despliegue
     - name: Deployment success notification
