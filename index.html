@@ -3,109 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electiva 2 - Wilmar Gómez</title>
+    <title>LUXE - Gastronomía de Alto Nivel</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            line-height: 1.8;
         }
-        h1 {
-            color: #333;
+
+        header {
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 3px solid #007acc;
-            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;
         }
-        h2 {
-            color: #007acc;
-            margin-top: 30px;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
         }
-        .info {
-            background-color: #e7f3ff;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #666;
+            letter-spacing: 2px;
+            font-weight: 300;
         }
-        .highlight {
-            background-color: #fff3cd;
-            padding: 10px;
-            border-radius: 5px;
-            border-left: 4px solid #ffc107;
+
+        main {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
         }
-        ul {
-            padding-left: 20px;
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
         }
-        li {
-            margin: 10px 0;
+
+        .dish {
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 30px;
         }
+
+        .dish-name {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .dish-desc {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .price {
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            font-weight: 300;
+        }
+
+        button {
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #666;
+            padding: 40px 20px;
+            margin-top: 100px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Electiva 2 ( Virtual ) | 2025-C-3</h1>
-        
-        <div class="info">
-            <p><strong>Estudiante:</strong> Wilmar Gómez</p>
-            <p><strong>Matrícula:</strong> 20240103</p>
-            <p><strong>Profesor:</strong> Elvys Cruz</p>
-            <p><strong>Curso:</strong> 2025-C-3-2526-3146-TDS-016</p>
-            <p><strong>Actividad:</strong> S3: Herramientas y Tecnologias de DevOps</p>
+    <header>
+        <h1>LUXE</h1>
+        <p class="tagline">EXPERIENCIA GASTRONÓMICA EXCLUSIVA</p>
+    </header>
+
+    <main>
+        <div class="menu-grid">
+            <div class="dish">
+                <div class="dish-name">TARTAR DE ATÚN</div>
+                <div class="dish-desc">Atún rojo, aguacate, trufa negra</div>
+                <div class="price">$85</div>
+                <button>ORDENAR</button>
+            </div>
+
+            <div class="dish">
+                <div class="dish-name">RISOTTO DE HONGOS</div>
+                <div class="dish-desc">Hongos porcini, parmesano, aceite de trufa</div>
+                <div class="price">$72</div>
+                <button>ORDENAR</button>
+            </div>
+
+            <div class="dish">
+                <div class="dish-name">FILETE WAGYU</div>
+                <div class="dish-desc">Carne A5, sal de mar, romero</div>
+                <div class="price">$195</div>
+                <button>ORDENAR</button>
+            </div>
+
+            <div class="dish">
+                <div class="dish-name">LANGOSTA THERMIDOR</div>
+                <div class="dish-desc">Langosta fresca, bechamel de cognac</div>
+                <div class="price">$148</div>
+                <button>ORDENAR</button>
+            </div>
+
+            <div class="dish">
+                <div class="dish-name">SOUFFLÉ DE CHOCOLATE</div>
+                <div class="dish-desc">Chocolate belga 70%, helado de vainilla</div>
+                <div class="price">$45</div>
+                <button>ORDENAR</button>
+            </div>
+
+            <div class="dish">
+                <div class="dish-name">CAVIAR IMPERIAL</div>
+                <div class="dish-desc">Caviar Beluga, blinis, crème fraîche</div>
+                <div class="price">$220</div>
+                <button>ORDENAR</button>
+            </div>
         </div>
+    </main>
 
-        <h2>Evaluación 1er Parcial: Integración Continua con Surge.sh</h2>
-        
-        <div class="highlight">
-            <p><strong>Objetivo:</strong> Crear una página web y hacer integración continua con GitHub Actions y Surge.sh para despliegue automático.</p>
-        </div>
-
-        <h2>Información del Proyecto</h2>
-        <ul>
-            <li><strong>Repositorio GitHub:</strong> <a href="https://github.com/WILMAR-10/Electiva2" target="_blank">https://github.com/WILMAR-10/Electiva2</a></li>
-            <li><strong>GitHub Pages URL:</strong> <a href="https://wilmar-10.github.io/Electiva2/" target="_blank">https://wilmar-10.github.io/Electiva2/</a></li>
-            <li><strong>Surge.sh URL:</strong> <a href="https://electiva2-wilmar-gomez.surge.sh" target="_blank">https://electiva2-wilmar-gomez.surge.sh</a></li>
-        </ul>
-
-        <h2>Tecnologías Utilizadas</h2>
-        <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>GitHub Actions</li>
-            <li>Surge.sh</li>
-            <li>Git para control de versiones</li>
-            <li>CI/CD Pipeline</li>
-        </ul>
-
-        <h2>Proceso de Desarrollo</h2>
-        <ol>
-            <li>Creación del repositorio local y en GitHub</li>
-            <li>Desarrollo de la página web (index.html)</li>
-            <li>Configuración de GitHub Actions (.github/workflows/main.yaml)</li>
-            <li>Configuración de secretos para Surge.sh</li>
-            <li>Despliegue automático con cada push</li>
-            <li>Integración continua completamente funcional</li>
-        </ol>
-
-        <footer>
-            <p>Desarrollado para la materia Electiva 2 - DevOps Tools and Technologies</p>
-            <p>&copy; 2025 Wilmar Gómez</p>
-        </footer>
-    </div>
+    <footer>
+        LUXE © 2025 — SERVICIO A DOMICILIO EXCLUSIVO
+    </footer>
 </body>
 </html>
